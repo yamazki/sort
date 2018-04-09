@@ -16,25 +16,14 @@ int* bubbleSort1(int* array, int arrayLength) {
   return array;
 }
 
-
 //新しく領域を確保するバブルソート
 int* bubbleSort2(int* array, int arrayLength) {
   int* sortedArray;
   sortedArray = (int*)calloc(arrayLength, sizeof(int));
   copyIntArray(array, sortedArray, arrayLength);
-  for(int i = arrayLength; 0 < i; i--) {
-    for(int j = 0; j < i-1; j++) {
-      if(sortedArray[j] > sortedArray[j+1]) {
-        int tmp;
-        tmp = sortedArray[j];
-        sortedArray[j] = sortedArray[j+1];
-        sortedArray[j+1] = tmp;
-      }
-    }
-  }
+  bubbleSort1(sortedArray, arrayLength);
   return sortedArray;
 }
-
 
 void copyIntArray(int* source, int* destination, int length) {
   for(int i = 0; i < length; i++) {
